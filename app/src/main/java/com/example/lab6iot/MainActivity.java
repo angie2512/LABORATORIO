@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
                         if (auth.getCurrentUser() != null) {
                             String correo = auth.getCurrentUser().getEmail();
-                            agregarUsuarioAColeccion( usuario, "cliente");
+                            agregarUsuarioAColeccion( usuario, password,"cliente");
                             redirigirSegunRol(correo);
                         }
                     } else {
@@ -65,8 +65,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void agregarUsuarioAColeccion(String email, String rol) {
+    private void agregarUsuarioAColeccion(String email, String contrasena, String rol) {
         Map<String, Object> usuario = new HashMap<>();
+        usuario.put("password", contrasena);
         usuario.put("email", email);
         usuario.put("rol", rol);
 
